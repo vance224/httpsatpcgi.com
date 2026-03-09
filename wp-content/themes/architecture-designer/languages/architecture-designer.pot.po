@@ -1,0 +1,502 @@
+msgid ""
+msgstr "" 
+"Project-Id-Version: Architecture Designer\n"
+"POT-Creation-Date: 2022-02-09 20:24+2\n"
+"PO-Revision-Date: 2022-02-09 20:24+2\n"
+"Last-Translator: \n"
+"Language-Team: Peccular <peccular@gmail.com>\n"
+"Language: en_US\n"
+"MIME-Version: 0.1.1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _;__;_e;gettext;gettext_noop;esc_attr;esc_attr__;"
+"esc_attr_e;esc_html;esc_html__;esc_html_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+
+#: inc/customizer/customizer-options/architecturedesigner-footer.php:10
+msgid "Footer"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-footer.php:18
+msgid "Footer Background"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-footer.php:18
+msgid "Footer Background"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-footer.php:38
+msgid "Background"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-footer.php:56
+msgid "Background Image"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-footer.php:67
+msgid "Footer Bottom"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-footer.php:87
+msgid "Copyright"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-footer.php:93
+msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-footer.php:107
+msgid "Copytight"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:07
+msgid "Frontpage Sections"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:18
+msgid "Slider Section"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:40
+msgid "Slider 1"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:62
+msgid "Slider 2"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:83
+msgid "Slider 3"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:104
+msgid "Slider 4"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:126
+msgid "Slider 5"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:142
+msgid "Service Section"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:163
+msgid "Service 1"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:185
+msgid "Service 2"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:206
+msgid "Service 3"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:227
+msgid "Service 4"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:249
+msgid "Service 5"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-frontpage.php:270
+msgid "Service 6"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-general.php:07
+msgid "General"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-general.php:16
+msgid "Clip Art"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-general.php:35
+msgid "Hide / Show Clip Art"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-general.php:46
+msgid "Breadcrumb Section"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-general.php:66
+msgid "Settings"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-general.php:85
+msgid "Hide / Show Sections"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-general.php:107
+msgid "Background"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-general.php:124
+msgid "Background Image"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-general.php:143
+msgid "Background Attachment"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:12
+msgid "Header"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:24
+msgid "Site Identity"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:38
+msgid "Header Navigation"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:56
+msgid "Cart"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:75 inc/customizer/customizer-options/architecturedesigner-allsettings.php:114 inc/customizer/customizer-options/architecturedesigner-allsettings.php:154 inc/customizer/customizer-options/architecturedesigner-allsettings.php:246
+msgid "Hide/Show"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:95
+msgid "Search"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:135
+msgid "Toggle"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:174 inc/customizer/customizer-options/architecturedesigner-allsettings.php:195 inc/customizer/customizer-options/architecturedesigner-allsettings.php:283
+msgid "Title"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:210 inc/customizer/customizer-options/architecturedesigner-allsettings.php:219
+msgid "Sticky Headers"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:260
+msgid "Top Header"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:269
+msgid "Our clients are always comletely satisfied with our services"
+msgstr ""
+
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:295
+msgid "+386 40 111 5555"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:309
+msgid "Phone Number"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:318
+msgid "fa fa-phone"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:332
+msgid "Phone Number Icon"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:343
+msgid "info@yourdomain.com"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:357
+msgid "Email"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:366
+msgid "fa fa-envelope-o"
+msgstr ""
+
+#: inc/customizer/customizer-options/architecturedesigner-allsettings.php:380
+msgid "Mail Icon"
+msgstr ""
+
+#: inc/customizer/extras.php:76
+msgid "0"
+msgstr ""
+
+#: inc/customizer/extras.php:104
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: inc/customizer/extras.php:108
+msgid "Monthly Archives: %s"
+msgstr ""
+
+
+#: inc/customizer/extras.php:112
+msgid "Yearly Archives: %s"
+msgstr ""
+
+
+#: inc/customizer/extras.php:116
+msgid "Category Archives: %s"
+msgstr ""
+
+#: inc/customizer/extras.php:120
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: inc/customizer/extras.php:124 inc/customizer/extras.php:302
+msgid "Error 404"
+msgstr ""
+
+#: inc/customizer/extras.php:128
+msgid "Author: %s"
+msgstr ""
+
+
+#: inc/customizer/extras.php:161 inc/customizer/extras.php:164
+msgid "1"
+msgstr ""
+
+#: inc/customizer/extras.php:163
+msgid "Home"
+msgstr ""
+
+#: inc/customizer/extras.php:183
+msgid "Archive by category"
+msgstr ""
+
+#: inc/customizer/extras.php:189
+msgid "Search results for"
+msgstr ""
+
+#: inc/customizer/extras.php:292
+msgid "Posts tagged"
+msgstr ""
+
+#: inc/customizer/extras.php:298
+msgid "Articles posted by"
+msgstr ""
+
+#: inc/customizer/extras.php:307
+msgid "Page"
+msgstr ""
+
+
+#: inc/customizer/template-tags.php:28
+msgid "Posted on %s"
+msgstr ""
+
+#: inc/customizer/template-tags.php:28
+msgid "post date"
+msgstr ""
+
+#: inc/customizer/template-tags.php:33
+msgid "by %s"
+msgstr ""
+
+#: inc/customizer/template-tags.php:33
+msgid "post author"
+msgstr ""
+
+#: inc/customizer/template-tags.php:49 inc/customizer/template-tags.php:55
+msgid ","
+msgstr ""
+
+#: inc/customizer/template-tags.php:57
+msgid "Tagged %1$s"
+msgstr ""
+
+#: inc/customizer/template-tags.php:71
+msgid "Edit %s"
+msgstr ""
+
+#: template-parts/content/content-none.php:14
+msgid "Ready to publish your first post? <a href="%1$s">Get started here</a>."
+msgstr ""
+
+#: template-parts/content/content-none.php:16
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content/content-none.php:18
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/content/content-page.php:30
+msgid "Read More"
+msgstr ""
+
+#: template-parts/content/content-page.php:38
+msgid "By"
+msgstr ""
+
+
+#: template-parts/content/content-search.php:30
+msgid "Read More"
+msgstr ""
+
+#: template-parts/content/content-search.php:38
+msgid "By"
+msgstr ""
+
+#: template-parts/content/content.php:33
+msgid "Continue reading %s <span class="meta-nav">&rarr;</span>"
+msgstr ""
+
+#: template-parts/sections/section-header.php:82 template-parts/sections/section-header.php:86
+msgid "Toggle navigation"
+msgstr ""
+
+#: template-parts/sections/section-service.php:06
+msgid "Our Services"
+msgstr ""
+
+#: template-parts/sections/section-service.php:44
+msgid "Read More"
+msgstr ""
+
+#: template-parts/sections/section-slider.php:40
+msgid "Read More"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:32 woocommerce/cart/mini-cart.php:147
+msgid "Total:"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:55 woocommerce/cart/mini-cart.php:170
+msgid "Remove this item"
+msgstr ""
+
+
+#: woocommerce/cart/mini-cart.php:99
+msgid "Checkout"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:105 woocommerce/cart/mini-cart.php:221
+msgid "No products in the cart."
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:141
+msgid "0"
+msgstr ""
+
+
+#: woocommerce/cart/content-product.php:33
+msgid "Sale"
+msgstr ""
+
+#: woocommerce/cart/content-product.php:52
+msgid "Rated %s out of 5"
+msgstr ""
+
+
+#: 404.php:18
+msgid "Page Not Found"
+msgstr ""
+
+#: 404.php:20
+msgid "The page you were looking for could not be found."
+msgstr ""
+
+#: 404.php:22
+msgid "Go to Home"
+msgstr ""
+
+#: comments.php:41 comments.php:31
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgstr ""
+
+#: comments.php:41 comments.php:31
+msgid "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr ""
+
+#: comments.php:41 comments.php:31
+msgid "comments title"
+msgstr ""
+
+#: comments.php:41 comments.php:62
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:44 comments.php:64
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:45 comments.php:65
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:77
+msgid "Comments are closed."
+msgstr ""
+
+
+#: footer.php:23
+msgid "<a href="#">Architecture Designer</a>"
+msgstr ""
+
+#: functions.php:38
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:101
+msgid "Sidebar Widget Area"
+msgstr ""
+
+
+#: functions.php:103
+msgid "The Primary Widget Area"
+msgstr ""
+
+
+#: functions.php:111
+msgid "Footer Widget Area"
+msgstr ""
+
+#: functions.php:113
+msgid "The Footer Widget Area"
+msgstr ""
+
+#: functions.php:121
+msgid "WooCommerce Widget Area"
+msgstr ""
+
+#: functions.php:123
+msgid "This Widget area for WooCommerce Widget"
+msgstr ""
+
+#: header.php:17
+msgid "Skip to content"
+msgstr ""
+
+#: searchform.php:12
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:13
+msgid "Search …"
+msgstr ""
+
+#: searchform.php:15
+msgid "Search"
+msgstr ""
