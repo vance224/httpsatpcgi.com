@@ -198,6 +198,11 @@
         const formData = new FormData(form);
         formData.append('action', 'submit_contact_form');
         
+        // Add nonce if available
+        if (contactFormAjax && contactFormAjax.nonce) {
+            formData.append('contact_form_nonce', contactFormAjax.nonce);
+        }
+        
         // Send to WordPress AJAX handler
         const ajaxUrl = contactFormAjax && contactFormAjax.ajaxurl ? contactFormAjax.ajaxurl : '/wp-admin/admin-ajax.php';
         
@@ -362,6 +367,7 @@
                 <button class="contact-form-close" aria-label="Close">×</button>
                 <h2 class="contact-form-title">Start a project</h2>
                 <form id="contact-form-floating" method="POST" action="" class="contact-form">
+                    ${contactFormAjax && contactFormAjax.nonce ? `<input type="hidden" name="contact_form_nonce" value="${contactFormAjax.nonce}">` : ''}
                     <div class="contact-form-group">
                         <label class="contact-form-label">Name</label>
                         <input type="text" name="name" class="contact-form-input" placeholder="Name" required>

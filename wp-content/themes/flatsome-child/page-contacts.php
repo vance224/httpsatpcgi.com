@@ -44,6 +44,7 @@ do_action('flatsome_before_page');
                 <h2 class="contact-form-heading">NEW PROJECT ENQUIRIES</h2>
                 
                 <form id="contact-form" method="POST" action="" class="contact-form">
+                    <?php wp_nonce_field('contact_form_submit', 'contact_form_nonce'); ?>
                     <div class="contact-form-group">
                         <input type="text" name="name" class="contact-form-input" placeholder="Name" required>
                     </div>

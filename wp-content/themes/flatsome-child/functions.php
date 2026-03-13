@@ -25,9 +25,10 @@ function flatsome_child_enqueue_contact_form() {
         true
     );
     
-    // Localize script for AJAX URL
+    // Localize script for AJAX URL and nonce
     wp_localize_script('contact-form-script', 'contactFormAjax', array(
-        'ajaxurl' => admin_url('admin-ajax.php')
+        'ajaxurl' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('contact_form_submit')
     ));
     
     // Add reCAPTCHA site key if configured (replace with your actual site key or get from options)
@@ -52,129 +53,39 @@ function flatsome_child_enqueue_contact_form() {
 }
 add_action('wp_enqueue_scripts', 'flatsome_child_enqueue_contact_form');
 
-// Configure SMTP for email sending
-function flatsome_child_configure_smtp($phpmailer) {
-    // Only configure if PHPMailer object exists
-    if (!is_object($phpmailer)) {
-        return;
-    }
+// Include email configuration file
+$email_config_file = get_stylesheet_directory() . '/email-config.php';
+if (file_exists($email_config_file)) {
+    require_once $email_config_file;
     
-    // SMTP Configuration
-    // For localhost/testing: You can use Gmail SMTP or a mail service like Mailtrap, SendGrid, etc.
-    // For production: Use your hosting provider's SMTP settings
-    
-    // Option 1: Gmail SMTP (requires App Password)
-    // To use Gmail:
-    // 1. Enable 2-Step Verification in your Google Account
-    // 2. Generate an App Password: https://myaccount.google.com/apppasswords
-    // 3. Use that App Password below (not your regular password)
-    
-    // Option 2: Use your hosting provider's SMTP
-    // Check your hosting provider's documentation for SMTP settings
-    
-    // Option 3: Use a service like Mailtrap for testing (free)
-    // Sign up at https://mailtrap.io and use their SMTP settings
-    
-    // Uncomment and configure ONE of the options below:
-    
-    // ===== OPTION 1: Gmail SMTP =====
-    // IMPORTANT: To use Gmail SMTP, you need:
-    // 1. Enable 2-Step Verification in your Google Account
-    // 2. Generate an App Password: https://myaccount.google.com/apppasswords
-    // 3. Use the App Password below (NOT your regular Gmail password)
-    
-    // Set to true to enable Gmail SMTP
-    $use_gmail_smtp = false; // Set to true and configure credentials below
-    
-    // UPDATE THESE WITH YOUR GMAIL CREDENTIALS:
-    $gmail_username = ''; // Your Gmail address (e.g., yourname@gmail.com)
-    $gmail_app_password = ''; // Your Gmail App Password (16 characters, no spaces)
-    
-    if ($use_gmail_smtp && !empty($gmail_username) && !empty($gmail_app_password)) {
-        $phpmailer->isSMTP();
-        $phpmailer->Host = 'smtp.gmail.com';
-        $phpmailer->SMTPAuth = true;
-        $phpmailer->Port = 587;
-        $phpmailer->SMTPSecure = 'tls';
-        $phpmailer->Username = $gmail_username;
-        $phpmailer->Password = $gmail_app_password;
+    // Apply email configuration to PHPMailer
+    add_action('phpmailer_init', 'apply_email_config');
+} else {
+    // Fallback: Basic SMTP configuration if email-config.php doesn't exist
+    function flatsome_child_configure_smtp_fallback($phpmailer) {
+        if (!is_object($phpmailer)) {
+            return;
+        }
         
-        // Additional Gmail-specific settings
-        $phpmailer->SMTPOptions = array(
-            'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-            )
-        );
-        return; // Exit early if Gmail is configured
+        // Set From email and name
+        $admin_email = get_option('admin_email');
+        if (!empty($admin_email)) {
+            $phpmailer->From = $admin_email;
+            $phpmailer->FromName = get_bloginfo('name');
+        }
     }
-    
-    // ===== OPTION 2: Mailtrap (for testing) - ENABLED =====
-    // Mailtrap is FREE and perfect for testing emails
-    // Quick setup: https://mailtrap.io → Sign up (free) → Inboxes → SMTP Settings
-    
-    // Set to true to enable Mailtrap
-    $use_mailtrap = true; // Currently enabled for testing
-    
-    // UPDATE THESE WITH YOUR MAILTRAP SMTP CREDENTIALS:
-    // Get from: https://mailtrap.io → Inboxes → SMTP Settings
-    $mailtrap_username = 'your-mailtrap-username'; // Mailtrap SMTP username
-    $mailtrap_password = 'your-mailtrap-password'; // Mailtrap SMTP password
-    
-    if ($use_mailtrap && !empty($mailtrap_username) && !empty($mailtrap_password)) {
-        $phpmailer->isSMTP();
-        $phpmailer->Host = 'smtp.mailtrap.io';
-        $phpmailer->SMTPAuth = true;
-        $phpmailer->Port = 2525;
-        $phpmailer->Username = trim($mailtrap_username);
-        $phpmailer->Password = trim($mailtrap_password);
-        $phpmailer->SMTPSecure = false;
-        $phpmailer->SMTPAutoTLS = false;
-        return;
-    }
-    
-    // ===== OPTION 3: Fallback - Try to send without SMTP =====
-    // If no SMTP is configured, WordPress will try to use PHP mail() function
-    // This may work on some servers but often fails on localhost
-    // For best results, configure Mailtrap above
-    
-    // ===== OPTION 3: Generic SMTP (update with your provider's settings) =====
-    /*
-    $phpmailer->isSMTP();
-    $phpmailer->Host = 'smtp.your-provider.com';
-    $phpmailer->SMTPAuth = true;
-    $phpmailer->Port = 587; // or 465 for SSL
-    $phpmailer->SMTPSecure = 'tls'; // or 'ssl' for port 465
-    $phpmailer->Username = 'your-email@yourdomain.com';
-    $phpmailer->Password = 'your-password';
-    */
-    
-    // For now, we'll try to use the default mail() function
-    // If that doesn't work, uncomment one of the options above
-    
-    // Set From email and name
-    $admin_email = get_option('admin_email');
-    if (!empty($admin_email)) {
-        $phpmailer->From = $admin_email;
-        $phpmailer->FromName = get_bloginfo('name');
-    }
-    
-    // Enable error logging (set SMTPDebug to 2 for detailed debugging)
-    // Enable debugging to see what's happening
-    $phpmailer->SMTPDebug = 0; // 0 = off, 1 = client, 2 = client and server (set to 2 for debugging)
-    $phpmailer->Debugoutput = function($str, $level) {
-        // Log to error log
-        error_log("SMTP Debug ($level): $str");
-        // Also log to a file for easier debugging
-        $log_file = WP_CONTENT_DIR . '/debug-smtp.log';
-        @file_put_contents($log_file, date('Y-m-d H:i:s') . " [$level] $str\n", FILE_APPEND);
-    };
+    add_action('phpmailer_init', 'flatsome_child_configure_smtp_fallback');
 }
-add_action('phpmailer_init', 'flatsome_child_configure_smtp');
 
 // Handle contact form submission
 function flatsome_child_handle_contact_form() {
+    // Verify nonce for security
+    $nonce = isset($_POST['contact_form_nonce']) ? $_POST['contact_form_nonce'] : '';
+    if (!wp_verify_nonce($nonce, 'contact_form_submit')) {
+        wp_send_json_error(array('message' => 'Security verification failed. Please refresh the page and try again.'));
+        return;
+    }
+    
     // Get form data
     $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
     $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
@@ -221,10 +132,15 @@ function flatsome_child_handle_contact_form() {
     // }
     
     // Prepare email content
-    $to = 'vance@yopmail.com'; // Send to specified email (testing)
-    $subject = 'New Contact Form Submission: Start a Project';
+    // Get recipient email from config file if available, otherwise use default
+    $to = function_exists('get_contact_form_recipient') 
+        ? get_contact_form_recipient() 
+        : 'info@atpcgi.com';
+    $subject = 'New Contact Form Submission from ' . get_bloginfo('name');
     
-    $email_body = "New contact form submission from " . get_bloginfo('name') . "\n\n";
+    // Build email body with all required fields
+    $email_body = "You have received a new contact form submission from " . get_bloginfo('name') . "\n\n";
+    $email_body .= "=== CONTACT INFORMATION ===\n";
     $email_body .= "Name: $name\n";
     $email_body .= "Email: $email\n";
     
@@ -240,8 +156,9 @@ function flatsome_child_handle_contact_form() {
         $email_body .= "Interests: " . implode(', ', $interests) . "\n";
     }
     
+    $email_body .= "\n=== MESSAGE ===\n";
     if (!empty($message)) {
-        $email_body .= "\nMessage:\n$message\n";
+        $email_body .= "$message\n";
     }
     
     $email_body .= "\n---\n";
@@ -324,25 +241,26 @@ function flatsome_child_handle_contact_form() {
     
     // Return response
     if ($mail_sent) {
-        wp_send_json_success(array('message' => 'Thank you! Your message has been sent.'));
+        wp_send_json_success(array('message' => 'Thank you! Your message has been sent successfully.'));
     } else {
-        // Show detailed error message for debugging
-        $error_message = 'There was an error sending your message.';
-        
-        // Include error details for debugging
+        // Log detailed error for debugging (always log, not just in WP_DEBUG mode)
+        $log_message = 'Contact form email sending failed.';
         if (!empty($mail_error)) {
-            $error_message .= ' Error details: ' . $mail_error;
-        } else {
-            $error_message .= ' No error details available.';
+            $log_message .= ' Error: ' . $mail_error;
         }
+        if (isset($phpmailer) && is_object($phpmailer) && !empty($phpmailer->ErrorInfo)) {
+            $log_message .= ' PHPMailer ErrorInfo: ' . $phpmailer->ErrorInfo;
+        }
+        error_log($log_message);
         
-        // Add helpful instructions
-        $error_message .= ' Please configure SMTP settings in functions.php (Mailtrap recommended for testing).';
+        // Show user-friendly error message (don't expose technical details)
+        $error_message = 'Sorry, there was an error sending your message. Please try again later or contact us directly at info@atpcgi.com.';
         
-        // Log full error for debugging
-        if (defined('WP_DEBUG') && WP_DEBUG) {
-            error_log('Email sending failed. Error: ' . $mail_error);
-            error_log('PHPMailer ErrorInfo: ' . (isset($phpmailer) && is_object($phpmailer) ? $phpmailer->ErrorInfo : 'N/A'));
+        // In debug mode, show more details
+        if (defined('WP_DEBUG') && WP_DEBUG && current_user_can('manage_options')) {
+            if (!empty($mail_error)) {
+                $error_message .= ' (Debug: ' . esc_html($mail_error) . ')';
+            }
         }
         
         wp_send_json_error(array('message' => $error_message));
